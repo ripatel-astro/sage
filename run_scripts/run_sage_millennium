@@ -1,0 +1,27 @@
+# bash run_sage
+
+
+# SAGE Run for Millennium Script
+# This will run SAGE for new millennium parameters!
+# The plots will be created for you and the python packages will be deactivated once this finishes running
+# Happy modelling!
+
+
+
+
+# =========================================
+# SAGE Script Start
+# =========================================
+
+# 1. Compile SAGE:
+     make
+
+# 2. Run SAGE:
+     cd /Users/pater32/Documents/Research/SAGEModel/sage
+     ./sage --overwrite input/millennium.par
+
+# 3. Generate plots (using virtual environment):
+     source sage_venv/bin/activate
+     cd output/sage-plot
+     python sage-plot.py --param-file=../../input/millennium.par
+     deactivate  # when done with plotting
