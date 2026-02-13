@@ -163,7 +163,7 @@ void starformation_and_feedback(int p, int centralgal, double time, double dt,
     float StellarMass = Gal[p].StellarMass;
     float ICS = Gal[p].ICS;
     float BulgeMass = Gal[p].BulgeMass;
-    float NSC_target = calc_nsc_mass(StellarMass);
+    float NSC_target = form_nsc(StellarMass);
     float NSC_formed;
 
     if (ICS > 0.0) {

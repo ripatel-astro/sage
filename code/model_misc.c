@@ -343,7 +343,5 @@ double form_nsc(float StellarMass){
   return Mnsc;
 }
 
-/*CALCULATES OCCUPATION FRACTION OF NSCs FOR POPULATION*/
-float 
 
 
