@@ -530,6 +530,7 @@ def parse_arguments():
     # Default to snapshot plots if neither is specified
     if not args.evolution and not args.snapshot_plots:
         args.snapshot_plots = True
+        args.evolution = True
         
     # Default to all plots if not specified
     if args.plots is None:
