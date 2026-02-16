@@ -24,4 +24,6 @@ struct halo_data {
   int FileNr;
   int SubhaloIndex;
   float SubHalfMass;
-} *Halo;
+} ;
+
+struct extern halo_data *Halo;
