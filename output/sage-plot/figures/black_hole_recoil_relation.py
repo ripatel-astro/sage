@@ -95,20 +95,20 @@ def plot(
     ejected = np.where((galaxies.BHEjectedMass > 0))[0]
 
     # Print some debug information if verbose mode is enabled
-    if verbose:      
-        print(f"Black Hole Recoil Relation plot debug:")
-        print(f"Number of black holes plotted: {len(w)}")
-        print(f" Number of galaxies with merged black holes: {len(m)}")
-        print(f"  Black Hole Mass Ratio range: {min(q):.2f} to {max(q):.2f}")
-        print(f"  Recoil range: {min(BHRecoil):.3f} to {max(BHRecoil):.3f}")
+    #if verbose:      
+    print(f"Black Hole Recoil Relation plot debug:")
+    print(f"Number of black holes plotted: {len(w)}")
+    print(f" Number of galaxies with merged black holes: {len(m)}")
+    print(f"  Black Hole Mass Ratio range: {min(q):.2f} to {max(q):.2f}")
+    print(f"  Recoil range: {min(BHRecoil):.3f} to {max(BHRecoil):.3f}")
 
-        print('Number of ejected black holes', len(ejected))
+    print('Number of ejected black holes', len(ejected))
 
-        BHGal = np.where((galaxies.BlackHoleMass > 0))[0]
-        print("Galaxies with black holes", len(BHGal))
+    BHGal = np.where((galaxies.BlackHoleMass > 0))[0]
+    print("Galaxies with black holes", len(BHGal))
 
-        NoBHMR = np.where(galaxies.BHMassRatio == 0)[0]
-        print(f" Number galaxies without merged black holes", len(NoBHMR))
+    NoBHMR = np.where(galaxies.BHMassRatio == 0)[0]
+    print(f" Number galaxies without merged black holes", len(NoBHMR))
 
     # Plot the galaxy data
     ax.scatter(

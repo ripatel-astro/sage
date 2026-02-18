@@ -36,19 +36,11 @@ double radiativeEfficiencyThin(double spin) {
 
 double calcEddingtonAccretionRate(double mass, double spin) {
 
-    // these are in SI units
-    const double G_SI = 6.67430e-11;              // m³/(kg·s²) 
-    const double m_p_SI = 1.6726219e-27;          // kg
-    const double c_SI = 299792458.0;              // m/s
-    const double sigma_T_SI = 6.6524587e-29;      // m²
-    const double Msun_SI = 1.98847e30;            // kg
-    const double yr_SI = 31557600.0;              // s
-
     double efficiency = radiativeEfficiencyThin(spin);
-    double mass_kg = mass * Msun_SI;
+    double mass_kg = mass * SOLAR_MASS * 1e-3;
 
     // Returns Eddington accretion rate in solar masses per year
-    return 4 * M_PI * G_SI * mass_kg * m_p_SI / (efficiency * sigma_T_SI * c_SI) * yr_SI / Msun_SI;
+    return 4 * M_PI * (GRAVITY * 1e-3) * mass_kg * (PROTONMASS * 1e-3) / (efficiency * SIGMAT * (C * 1e-2)) * SEC_PER_YEAR / (SOLAR_MASS * 1e-3);
 }
 
 double calcMaximumMagnetization(double spin) {
@@ -106,16 +98,12 @@ double calcJetPower(double mass, double spin, double eddingtonRatio) {
 
     // Jet power: P = eta_EM * f_Edd * M_dot_Edd * c^2
     // Returns power in Watts (SI)
-    
-    const double c_SI = 299792458.0;              // m/s
-    const double Msun_SI = 1.98847e30;            // kg
-    const double yr_SI = 31557600.0;              // s
-    
+
     double mdot_edd = calcEddingtonAccretionRate(mass, spin);  // Msun/yr
     
     // Convert Msun/yr to kg/s, then multiply by c^2. Jet power in units of Watts
     return etaEM(spin, eddingtonRatio) * eddingtonRatio * mdot_edd 
-           * Msun_SI / yr_SI * c_SI * c_SI;
+           * (SOLAR_MASS * 1e-3) / SEC_PER_YEAR * (C * 1e-2) * (C * 1e-2);
 
 }
 

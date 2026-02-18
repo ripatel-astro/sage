@@ -132,7 +132,6 @@ struct GALAXY_OUTPUT {
   float BlackHoleMass;
   float ICS;
   float NSC; //Nuclear star clusters
-  int Has_NSC; //NSC occupation indicator
 
   /* metals */
   float MetalsColdGas;

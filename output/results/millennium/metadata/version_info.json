@@ -1,12 +1,12 @@
 {
-  "git_commit": "902f2cdc4e534429eaeb3e53ecb9e6f539b1db26",
+  "git_commit": "3ad74d2e1705044be5b2be79d4a45527dd174a0b",
   "git_branch": "main",
-  "github_url": "https://github.com/ripatel-astro/sage/commit/902f2cdc4e534429eaeb3e53ecb9e6f539b1db26",
-  "build_date": "Feb 15 2026",
-  "run_date": "2026-02-15T13:40:59Z",
+  "github_url": "https://github.com/ripatel-astro/sage/commit/3ad74d2e1705044be5b2be79d4a45527dd174a0b",
+  "build_date": "Feb 18 2026",
+  "run_date": "2026-02-18T01:47:45Z",
   "parameters": {
     "file_path": "input/millennium.par",
-    "parameter_md5_checksum": "a4c371c58a7e58422c686797915bf694"
+    "parameter_md5_checksum": "d2639b84f405e898850832c93aba8bdd"
   },
   "compiler": "gcc 4.2.1",
   "system": "macOS 15.7.3 arm64",

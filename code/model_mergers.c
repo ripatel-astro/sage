@@ -303,8 +303,6 @@ void add_galaxies_together(int t, int p) {
   Gal[t].ICS += Gal[p].ICS;
   Gal[t].MetalsICS += Gal[p].MetalsICS;
 
-
-
   /* Save individual black hole masses*/
   Gal[t].PrimaryBHMass = Gal[t].BlackHoleMass;
   Gal[t].SecondaryBHMass = Gal[p].BlackHoleMass;
@@ -332,7 +330,7 @@ void add_galaxies_together(int t, int p) {
   /* Add black hole mass */
   Gal[t].BlackHoleMass += Gal[p].BlackHoleMass;
 
-  /* Eject post-merger black hole if recoil velocity higher than escape velocity */
+  /* Eject post-merger black hole if recoil velocity higher than escape velocity*/ 
   float Vesc = sqrt(2)*Gal[t].Vvir;
   if(Gal[t].BHRecoilVmag >= Vesc){
     Gal[t].BHEjectedMass += Gal[t].BlackHoleMass; //this places the ejected black hole into a reservoir, which we can reincorporate later
