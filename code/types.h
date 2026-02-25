@@ -131,7 +131,7 @@ struct GALAXY_OUTPUT {
   float EjectedMass;
   float BlackHoleMass;
   float ICS;
-  float NSC; //Nuclear star clusters
+  float NSC; //Nuclear star clusters 
 
   /* metals */
   float MetalsColdGas;
@@ -172,7 +172,6 @@ struct GALAXY_OUTPUT {
 struct GALAXY {
   int SnapNum;
   int Type;
-
   int GalaxyNr;
   int CentralGal;
   int HaloNr;
