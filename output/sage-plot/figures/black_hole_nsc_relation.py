@@ -140,7 +140,7 @@ def plot(
     # Plot a dashed line to show galaxies with equal BH Mass and NSC Mass
     plt.axhline(
         y=0,
-        color="grey",
+        color="black",
         linestyle="dashed",
     )
 

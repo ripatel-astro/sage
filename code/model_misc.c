@@ -321,7 +321,7 @@ double calc_recoil_velocity(float q, int e, int a_1, int a_2, int xi, int phi_1,
 /*DEFINES NUCLEAR STAR CLUSTER SCALING RELATION*/
 double form_nsc(float StellarMass){  
   double Mnsc, logMstar, logMnsc, logMnsc_noscatter;
-  logMstar = log10(StellarMass * 1e10 / Hubble);
+  logMstar = log10(StellarMass * 1e10);
   if (logMstar <= 9 + (.38/.44)){        //small galaxies
     logMnsc_noscatter = (.48*(logMstar-9) + 6.51);  
   }

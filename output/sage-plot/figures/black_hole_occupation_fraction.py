@@ -150,20 +150,20 @@ def plot(
     # Plot the galaxy data
     midpoints = .5 * (edges[1:] + edges[:-1])
     
-    ax.plot(
-        midpoints,
-        f_occ_early,
-        marker="o",
-        color = "firebrick",
-        label="Early-type galaxies",
-    )
-    ax.plot(
-        midpoints,
-        f_occ_late,
-        marker="o",
-        color="dodgerblue",
-        label="Late-type galaxies",
-    )
+    #ax.plot(
+    #    midpoints,
+    #    f_occ_early,
+    #    marker="o",
+    #    color = "firebrick",
+    #    label="Early-type galaxies",
+    #)
+    #ax.plot(
+    #    midpoints,
+    #    f_occ_late,
+    #    marker="o",
+    #    color="dodgerblue",
+    #    label="Late-type galaxies",
+    #)
 
     ax.plot(
         midpoints,
@@ -183,7 +183,7 @@ def plot(
     # ax.yaxis.set_minor_locator(MultipleLocator(1))
 
     # Set axis limits - matching the original plot
-    ax.set_xlim(8, 12.5)
+    ax.set_xlim(8, 11.25)
     ax.set_ylim(0, 1)
 
     # Add consistently styled legend
