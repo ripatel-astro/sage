@@ -34,8 +34,11 @@
 #include "config.h"
 #include "core_proto.h"
 #include "globals.h"
+#include "io_tree.h"
 #include "io_tree_hdf5.h"
+#include "io_util.h"
 #include "types.h"
+#include "util_error.h"
 
 // Local Variables //
 static hid_t hdf5_file;
@@ -85,17 +88,17 @@ void load_tree_table_hdf5(int filenr) {
 
   struct METADATA_NAMES metadata_names;
 
-  snprintf(buf, MAX_STRING_LEN, "%s/%s.%d%s", SimulationDir, TreeName, filenr,
-           TreeExtension);
+  snprintf(buf, MAX_STRING_LEN, "%s/%s.%d%s", SageConfig.SimulationDir, SageConfig.TreeName, filenr,
+           SageConfig.TreeExtension);
   hdf5_file = H5Fopen(buf, H5F_ACC_RDONLY, H5P_DEFAULT);
 
   if (hdf5_file < 0) {
     FATAL_ERROR("Failed to open HDF5 tree file '%s'", buf);
   }
 
-  status = fill_metadata_names(&metadata_names, TreeType);
+  status = fill_metadata_names(&metadata_names, SageConfig.TreeType);
   if (status != EXIT_SUCCESS) {
-    FATAL_ERROR("Failed to fill metadata names for tree type %d", TreeType);
+    FATAL_ERROR("Failed to fill metadata names for tree type %d", SageConfig.TreeType);
   }
 
   status = read_attribute_int(hdf5_file, "/Header", metadata_names.name_NTrees,
@@ -116,13 +119,35 @@ void load_tree_table_hdf5(int filenr) {
 
   TreeNHalos = mymalloc(sizeof(int) * Ntrees);
 
-  status = read_attribute_int(hdf5_file, "/Header",
+  /**/status = read_attribute_int(hdf5_file, "/Header",
                               metadata_names.name_TreeNHalos, TreeNHalos);
   if (status != EXIT_SUCCESS) {
     fprintf(stderr, "Error while processing file %s\n", buf);
     fprintf(stderr, "Error code is %d\n", status);
     ABORT(0);
   }
+
+  /*for (i = 0; i < Ntrees; i++) {
+    char tree_group_name[MAX_STRING_LEN];
+    snprintf(tree_group_name, MAX_STRING_LEN, "Tree%d", i); // Matches your h5dump "Tree990" style
+    
+    hid_t group_id = H5Gopen(hdf5_file, tree_group_name, H5P_DEFAULT);
+    if (group_id < 0) {
+        FATAL_ERROR("Could not open group %s", tree_group_name);
+    }
+
+    // Open any dataset inside the group (e.g., SnapNum) to check its length
+    hid_t dataset_id = H5Dopen(group_id, "SnapNum", H5P_DEFAULT);
+    hid_t space_id = H5Dget_space(dataset_id);
+    hsize_t dims[1];
+    H5Sget_simple_extent_dims(space_id, dims, NULL);
+    
+    TreeNHalos[i] = (int)dims[0]; // This is the number of halos in this tree
+
+    H5Sclose(space_id);
+    H5Dclose(dataset_id);
+    H5Gclose(group_id);
+  } */
 
   TreeFirstHalo = mymalloc(sizeof(int) * Ntrees);
 
@@ -200,8 +225,8 @@ void load_tree_hdf5(int32_t filenr, int32_t treenr) {
     char err_msg[MAX_STRING_LEN + 1];
     snprintf(err_msg, MAX_STRING_LEN,
              "The HDF5 file should still be opened when reading the halos in "
-             "tree %d. Error code: %d",
-             treenr, hdf5_file);
+             "tree %d. Error code: %lld",
+             treenr, (long long)hdf5_file);
     fprintf(stderr, "%s\n", err_msg);
     ABORT(0);
   }
@@ -319,9 +344,9 @@ int32_t fill_metadata_names(struct METADATA_NAMES *metadata_names,
   case genesis_lhalo_hdf5:
 
     snprintf(metadata_names->name_NTrees, MAX_STRING_LEN,
-             "Ntrees"); // Total number of trees within the file.
+             "NtreesPerFile"); // Total number of trees within the file.
     snprintf(metadata_names->name_totNHalos, MAX_STRING_LEN,
-             "totNHalos"); // Total number of halos within the file.
+             "NhalosPerFile"); // Total number of halos within the file.
     snprintf(metadata_names->name_TreeNHalos, MAX_STRING_LEN,
              "TreeNHalos"); // Number of halos per tree within the file.
     return EXIT_SUCCESS;

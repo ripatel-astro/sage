@@ -57,10 +57,10 @@ else
     CC = cc  # sets the C-compiler
 endif
 
-ifdef USE-HDF5
-    HDF5DIR := usr/local/x86_64/gnu/hdf5-1.8.17-openmpi-1.10.2-psm
+ifdef USE_HDF5
+    HDF5DIR := /opt/homebrew/opt/hdf5
     HDF5INCL := -I$(HDF5DIR)/include
-    HDF5LIB := -L$(HDF5DIR)/lib -lhdf5 -Xlinker -rpath -Xlinker $(HDF5DIR)/lib
+    HDF5LIB := -L$(HDF5DIR)/lib -lhdf5_hl -lhdf5 -Xlinker -rpath -Xlinker $(HDF5DIR)/lib
 
     OBJS += ./code/io_tree_hdf5.o ./code/io_save_hdf5.o
     INCL += ./code/io_tree_hdf5.h ./code/io_save_hdf5.h
