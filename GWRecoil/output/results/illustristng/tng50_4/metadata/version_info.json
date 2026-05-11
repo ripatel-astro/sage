@@ -1,0 +1,14 @@
+{
+  "git_commit": "dbdf8244fb95f05344aa02437695c3562159456e",
+  "git_branch": "main",
+  "github_url": "https://github.com/ripatel-astro/sage/commit/dbdf8244fb95f05344aa02437695c3562159456e",
+  "build_date": "May  5 2026",
+  "run_date": "2026-05-05T11:31:53Z",
+  "parameters": {
+    "file_path": "input/tng50.par",
+    "parameter_md5_checksum": "5de592f43706c4bb542463fd941d28a3"
+  },
+  "compiler": "gcc 4.2.1",
+  "system": "macOS 15.7.5 arm64",
+  "user": "pater32"
+}
