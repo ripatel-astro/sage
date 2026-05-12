@@ -684,9 +684,10 @@ void evolve_galaxies(int halonr, int ngal,
   infallingGas = infall_recipe(centralgal, ngal, ZZ[Halo[halonr].SnapNum]);
 
   /* Reset BH eject time for new timestep */
-  for (int p = 0; p < ngal; p++)
-      Gal[p].BHEjectedTime = -1;
-      Gal[p].BHRefilledTime = -1;
+  for (int p = 0; p < ngal; p++) {
+    Gal[p].BHEjectedTime = -1;
+    Gal[p].BHRefilledTime = -1;
+  }
   
   /* Integrate forward in time using STEPS intervals */
   for (step = 0; step < STEPS; step++) {
