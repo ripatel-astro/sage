@@ -683,11 +683,13 @@ void evolve_galaxies(int halonr, int ngal,
   /* Calculate infalling gas once, outside the time step loop */
   infallingGas = infall_recipe(centralgal, ngal, ZZ[Halo[halonr].SnapNum]);
 
+  /* Reset BH eject time for new timestep */
+  for (int p = 0; p < ngal; p++)
+      Gal[p].BHEjectedTime = -1;
+  
   /* Integrate forward in time using STEPS intervals */
   for (step = 0; step < STEPS; step++) {
-    /* Reset BH eject time for new timestep */
-    for (int p = 0; p < ngal; p++)
-      Gal[p].BHEjectedTime = -1;
+    
 
     /* Apply physical processes (infall, cooling, star formation) */
     apply_physical_processes(ngal, centralgal, halonr, infallingGas, step);

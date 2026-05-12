@@ -360,10 +360,6 @@ void eject_black_hole(int gal_index, double recoil_velocity) {
     Gal[gal_index].BHejectFlag = 1; //this flags if a black hole was ejected 
     Gal[gal_index].BHejectCount++; //this counts the number of ejections (used to track ejections across multiple snapshots)
     Gal[gal_index].BHEjectedTime = Gal[gal_index].SnapNum; //this tracks the snapshot when the black hole was ejected
-  }
-  else {
-      Gal[gal_index].BHEjectedMass = 0;
-      Gal[gal_index].BHEjectedTime = -1; //if no ejection occurred, set value to -1 (writing explicitly, but not necessary since this is the default value at initialization)
   } 
 }
 
