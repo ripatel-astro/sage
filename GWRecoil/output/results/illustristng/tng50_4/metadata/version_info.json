@@ -1,9 +1,9 @@
 {
-  "git_commit": "dbdf8244fb95f05344aa02437695c3562159456e",
+  "git_commit": "12c66b7e986923429a14122baad24e1eb8199dca",
   "git_branch": "main",
-  "github_url": "https://github.com/ripatel-astro/sage/commit/dbdf8244fb95f05344aa02437695c3562159456e",
-  "build_date": "May  5 2026",
-  "run_date": "2026-05-05T11:31:53Z",
+  "github_url": "https://github.com/ripatel-astro/sage/commit/12c66b7e986923429a14122baad24e1eb8199dca",
+  "build_date": "May 11 2026",
+  "run_date": "2026-05-11T20:50:00Z",
   "parameters": {
     "file_path": "input/tng50.par",
     "parameter_md5_checksum": "5de592f43706c4bb542463fd941d28a3"
