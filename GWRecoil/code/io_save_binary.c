@@ -341,7 +341,7 @@ void prepare_galaxy_for_output(int filenr, int tree, struct GALAXY *g,
   o->BHejectCount = g->BHejectCount;
   o->BHEjectedTime = g->BHEjectedTime;
   o->BHrefillCount = g->BHrefillCount;
-  o->BHreseedCount = g->BHreseedCount;
+  o->BHRefilledTime = g->BHRefilledTime;
 
   // infall properties
   if (g->Type != 0) {

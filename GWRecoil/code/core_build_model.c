@@ -686,10 +686,10 @@ void evolve_galaxies(int halonr, int ngal,
   /* Reset BH eject time for new timestep */
   for (int p = 0; p < ngal; p++)
       Gal[p].BHEjectedTime = -1;
+      Gal[p].BHRefilledTime = -1;
   
   /* Integrate forward in time using STEPS intervals */
   for (step = 0; step < STEPS; step++) {
-    
 
     /* Apply physical processes (infall, cooling, star formation) */
     apply_physical_processes(ngal, centralgal, halonr, infallingGas, step);

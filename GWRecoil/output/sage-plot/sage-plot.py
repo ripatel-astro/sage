@@ -111,7 +111,7 @@ def get_galaxy_dtype():
         ("BHejectCount", np.int32),
         ("BHEjectedTime", np.int32),
         ("BHrefillCount", np.int32),
-        ("BHreseedCount", np.int32),
+        ("BHRefilledTime", np.int32),
         ("infallMvir", np.float32),
         ("infallVvir", np.float32),
         ("infallVmax", np.float32),

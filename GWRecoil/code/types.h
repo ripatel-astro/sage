@@ -169,7 +169,7 @@ struct GALAXY_OUTPUT {
   int BHejectCount; //counts how many ejections a particular galaxy has experienced (used to track multiple ejections across multiple snapshots)
   int BHEjectedTime; // Snapshot number when the black hole was ejected
   int BHrefillCount; //counts how many times a black hole has been refilled after ejection 
-  int BHreseedCount; //counts how many times a black hole has been reseeded after ejection
+  int BHRefilledTime; // Snapshot number when the black hole was ejected
   
 
   /* infall properties */
@@ -255,7 +255,7 @@ struct GALAXY {
   int BHejectCount; //counts how many ejections a particular galaxy has experienced (used to track multiple ejections across multiple snapshots)
   int BHEjectedTime; // Snapshot number when the black hole was ejected
   int BHrefillCount; //counts how many times a black hole has been refilled after ejection (only due to mergers) 
-  int BHreseedCount; //counts how many times a black hole has been reseeded after ejection 
+  int BHRefilledTime; // Snapshot number when the black hole was ejected
 
   /* infall properties */
   float infallMvir;

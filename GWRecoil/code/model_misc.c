@@ -129,7 +129,7 @@ void init_galaxy(int p, int halonr) {
   Gal[p].BHejectCount = 0;
   Gal[p].BHEjectedTime = -1;
   Gal[p].BHrefillCount = 0;
-  Gal[p].BHreseedCount = 0;
+  Gal[p].BHRefilledTime = -1; 
 
   // infall properties
   Gal[p].infallMvir = -1.0;
@@ -378,7 +378,8 @@ void assign_bh_merger_type(int centralgal, int satellitegal) {
     if (Gal[centralgal].BlackHoleMass == 0 && Gal[satellitegal].BlackHoleMass > 0) {
       Gal[centralgal].BHmergeType = 2;
       Gal[centralgal].BHrefillCount++;
-      Gal[centralgal].BHejectFlag = 0; //reset flag after black hole gets refilled 
+      Gal[centralgal].BHejectFlag = 0; //reset flag after black hole gets refilled
+      Gal[centralgal].BHRefilledTime = Gal[centralgal].SnapNum; //this tracks the snapshot when the black hole was refilled
     }
     else {
       Gal[centralgal].BHmergeType = 0; // no BH merger, because neither (or just central) galaxy has black hole 
