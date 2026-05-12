@@ -9,7 +9,7 @@
 #ifndef GIT_VERSION_H
 #define GIT_VERSION_H
 
-#define GIT_COMMIT_HASH "12c66b7e986923429a14122baad24e1eb8199dca"
+#define GIT_COMMIT_HASH "1f9dc8117da44b51e45978ec6b25cb02d95463be"
 #define GIT_BRANCH_NAME "main"
 
 #endif /* GIT_VERSION_H */
