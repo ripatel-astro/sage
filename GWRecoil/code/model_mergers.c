@@ -307,6 +307,10 @@ void add_galaxies_together(int t, int p) {
   Gal[t].ICS += Gal[p].ICS;
   Gal[t].MetalsICS += Gal[p].MetalsICS;
 
+  /* Save central galaxy merger value */
+  Gal[t].mergeCount++;
+  Gal[t].mergeCount += Gal[p].mergeCount;
+
   /* Add BH masses OR eject post-merger BH if recoil >= escape velocity */
   /* Assign BH merger type */
   assign_bh_merger_type(t, p);

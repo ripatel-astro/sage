@@ -327,6 +327,7 @@ void prepare_galaxy_for_output(int filenr, int tree, struct GALAXY *g,
                    SEC_PER_YEAR / SOLAR_MASS;
 
   
+  o->mergeCount = g->mergeCount;
   o->PrimaryBHMass = g->PrimaryBHMass;
   o->SecondaryBHMass = g->SecondaryBHMass;
   o->PrimaryBHSpin = g->PrimaryBHSpin;
@@ -335,6 +336,8 @@ void prepare_galaxy_for_output(int filenr, int tree, struct GALAXY *g,
   o->BHRecoilVmag = g->BHRecoilVmag;
   o->BHEjectedMass = g->BHEjectedMass;
   o->MassofLastEjectedBH = g->MassofLastEjectedBH;
+  o->TimeofLastEjectedBH = g->TimeofLastEjectedBH;
+  o->TimeofLastRefilledBH = g->TimeofLastRefilledBH;
   o->BHmergeType = g->BHmergeType;
   o->BHmergeCount = g->BHmergeCount;
   o->BHejectFlag = g->BHejectFlag;

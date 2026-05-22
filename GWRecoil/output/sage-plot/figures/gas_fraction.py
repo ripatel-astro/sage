@@ -173,7 +173,7 @@ def plot(
         stellar_mass_refill,
         gas_fraction_refill,
         marker="o",
-        s=5,
+        s=20,
         c="magenta",
         alpha=0.7,
         label="Model galaxies with refilled BHs",

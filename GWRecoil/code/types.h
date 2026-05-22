@@ -155,6 +155,7 @@ struct GALAXY_OUTPUT {
   float TimeOfLastMajorMerger;
   float TimeOfLastMinorMerger;
   float OutflowRate;
+  int mergeCount; // counts how many mergers have happened in this galaxy's history
   float PrimaryBHMass;
   float SecondaryBHMass;
   float PrimaryBHSpin;
@@ -163,6 +164,8 @@ struct GALAXY_OUTPUT {
   float BHRecoilVmag; //BH Recoil Velocity value
   float BHEjectedMass;
   float MassofLastEjectedBH;
+  float TimeofLastEjectedBH;
+  float TimeofLastRefilledBH;
   int BHmergeType; // 0=no merger, 1=simple merger, 2=black hole refilled after ejection, 3=disk-instability growth, 4=both 2&3 
   int BHmergeCount;
   int BHejectFlag; // 0=no ejection, 1=ejection
@@ -241,6 +244,7 @@ struct GALAXY {
   float TimeOfLastMinorMerger;
   float OutflowRate;
   float TotalSatelliteBaryons;
+  int mergeCount; // counts how many mergers have happened in this galaxy's history
   float PrimaryBHMass;
   float SecondaryBHMass;
   float PrimaryBHSpin;
@@ -249,6 +253,8 @@ struct GALAXY {
   float BHRecoilVmag; //BH Recoil Velocity value
   float BHEjectedMass;
   float MassofLastEjectedBH;
+  float TimeofLastEjectedBH;
+  float TimeofLastRefilledBH;
   int BHmergeType; // 0=no merger, 1=simple merger, 2=black hole refilled after ejection 
   int BHmergeCount;
   int BHejectFlag; // 0=no ejection, 1=ejection

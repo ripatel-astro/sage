@@ -115,6 +115,7 @@ void init_galaxy(int p, int halonr) {
   Gal[p].TimeOfLastMinorMerger = -1.0;
   Gal[p].OutflowRate = 0.0;
   Gal[p].TotalSatelliteBaryons = 0.0;
+  Gal[p].mergeCount = 0;
   Gal[p].PrimaryBHMass = 0.0;
   Gal[p].SecondaryBHMass = 0.0;
   Gal[p].PrimaryBHSpin = 0.0;
@@ -123,6 +124,8 @@ void init_galaxy(int p, int halonr) {
   Gal[p].BHRecoilVmag = 0.0;
   Gal[p].BHEjectedMass = 0.0;
   Gal[p].MassofLastEjectedBH = 0.0;
+  Gal[p].TimeofLastEjectedBH = -1.0;
+  Gal[p].TimeofLastRefilledBH = -1.0;
   Gal[p].BHmergeType = 0; 
   Gal[p].BHmergeCount = 0;
   Gal[p].BHejectFlag = 0;
@@ -360,6 +363,7 @@ void eject_black_hole(int gal_index, double recoil_velocity) {
     Gal[gal_index].BHejectFlag = 1; //this flags if a black hole was ejected 
     Gal[gal_index].BHejectCount++; //this counts the number of ejections (used to track ejections across multiple snapshots)
     Gal[gal_index].BHEjectedTime = Gal[gal_index].SnapNum; //this tracks the snapshot when the black hole was ejected
+    Gal[gal_index].TimeofLastEjectedBH = Gal[gal_index].SnapNum; //this tracks the snapshot when the black hole was ejected
   } 
 }
 
@@ -380,6 +384,7 @@ void assign_bh_merger_type(int centralgal, int satellitegal) {
       Gal[centralgal].BHrefillCount++;
       Gal[centralgal].BHejectFlag = 0; //reset flag after black hole gets refilled
       Gal[centralgal].BHRefilledTime = Gal[centralgal].SnapNum; //this tracks the snapshot when the black hole was refilled
+      Gal[centralgal].TimeofLastRefilledBH = Gal[centralgal].SnapNum; //this tracks the snapshot when the black hole was refilled
     }
     else {
       Gal[centralgal].BHmergeType = 0; // no BH merger, because neither (or just central) galaxy has black hole 

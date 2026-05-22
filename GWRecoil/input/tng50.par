@@ -3,7 +3,7 @@
 %------------------------------------------
 
 FileNameGalaxies       model 
-OutputDir              /Users/pater32/Documents/GitHub/sage/GWRecoil/output/results/illustristng/tng50_4
+OutputDir              /Users/pater32/Documents/GitHub/sage/GWRecoil/output/results/illustristng/tng50_4/run10
 
 FirstFile         0
 LastFile          0
