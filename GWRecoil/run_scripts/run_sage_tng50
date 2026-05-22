@@ -22,8 +22,8 @@
      ./sage --overwrite input/tng50.par
 
 # 3. Generate plots (using virtual environment):
-     source sage_venv/bin/activate
-     cd output/sage-plot
-     python sage-plot.py --param-file=../../input/tng50.par
+     # source sage_venv/bin/activate
+     # cd output/sage-plot
+     # python sage-plot.py --param-file=../../input/tng50.par
      # python sage_loader.py
-     deactivate  # when done with plotting
+     # deactivate  # when done with plotting

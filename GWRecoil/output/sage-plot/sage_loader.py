@@ -26,7 +26,7 @@ def get_params(param_file):
     return params
 
 
-def load_snapshot(param_file, snapshot):
+def load_snapshot(param_file, snapshot, output_dir = None):
     """
     Return (galaxies, volume, metadata) for one snapshot.
     """
@@ -34,11 +34,14 @@ def load_snapshot(param_file, snapshot):
     # Parse params once
     params = sage_plot.SAGEParameters(param_file)
 
+    # Make output directory 
+    output_directory = output_dir if output_dir is not None else params['OutputDir']
+
     # Build snapshot -> redshift mapper
     mapper = sage_plot.SnapshotRedshiftMapper(
         param_file,
         params.params,
-        params["OutputDir"],
+        output_directory,
     )
 
     # Get redshift info
@@ -46,7 +49,7 @@ def load_snapshot(param_file, snapshot):
 
     # Construct same model path used in sage-plot.py
     model_base = os.path.join(
-        params["OutputDir"],
+        output_directory,
         f"{params['FileNameGalaxies']}{mapper.get_redshift_str(snapshot)}"
     )
 
