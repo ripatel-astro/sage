@@ -97,6 +97,7 @@ def get_galaxy_dtype():
         ("TimeOfLastMajorMerger", np.float32),
         ("TimeOfLastMinorMerger", np.float32),
         ("OutflowRate", np.float32),
+        ("MassRatio", np.float32),
         ("mergeCount", np.int32),
         ("PrimaryBHMass", np.float32),
         ("SecondaryBHMass", np.float32),
