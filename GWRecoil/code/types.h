@@ -155,6 +155,7 @@ struct GALAXY_OUTPUT {
   float TimeOfLastMajorMerger;
   float TimeOfLastMinorMerger;
   float OutflowRate;
+  float MassRatio;
   int mergeCount; // counts how many mergers have happened in this galaxy's history
   float PrimaryBHMass;
   float SecondaryBHMass;
@@ -244,6 +245,7 @@ struct GALAXY {
   float TimeOfLastMinorMerger;
   float OutflowRate;
   float TotalSatelliteBaryons;
+  float MassRatio;
   int mergeCount; // counts how many mergers have happened in this galaxy's history
   float PrimaryBHMass;
   float SecondaryBHMass;
