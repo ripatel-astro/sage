@@ -127,6 +127,7 @@ void deal_with_galaxy_merger(int p, int merger_centralgal, int centralgal,
     mass_ratio = safe_div(mi, ma, 1.0);
   else
     mass_ratio = 1.0;
+  Gal[merger_centralgal].MassRatio = mass_ratio;
 
   /* Add all components of satellite galaxy to central galaxy */
   add_galaxies_together(merger_centralgal, p);

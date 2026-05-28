@@ -327,6 +327,8 @@ void prepare_galaxy_for_output(int filenr, int tree, struct GALAXY *g,
                    SEC_PER_YEAR / SOLAR_MASS;
 
   
+  
+  o->MassRatio = g->MassRatio;
   o->mergeCount = g->mergeCount;
   o->PrimaryBHMass = g->PrimaryBHMass;
   o->SecondaryBHMass = g->SecondaryBHMass;
