@@ -68,8 +68,20 @@ def load_snapshot(param_file, snapshot, output_dir = None):
     except Exception as e:
         print(f'Error generating galaxies: {e}')
 
-   
 
+def load_variable(param_file, snapshot, variable, output_dir=None):
+    """
+    Returns array of one galaxy variable for one snapshot.
+    """
+
+    galaxies, volume, metadata = load_snapshot(param_file, snapshot, output_dir)
+
+    if not hasattr(galaxies, variable):
+        print(f"No attribute found: {variable}")
+        return None
+
+    return getattr(galaxies, variable)
+   
 
 def load_all_snapshots(param_file):
     """
@@ -89,5 +101,24 @@ def load_all_snapshots(param_file):
     for snap in mapper.get_all_snapshots():
         data[snap] = load_snapshot(param_file, snap)
 
+    return data
 
+
+def load_variable_all_snapshots(param_file, variable, output_dir=None):
+    """
+    Returns array of one galaxy variable for all snapshot.
+    """
+
+    params = sage_plot.SAGEParameters(param_file)
+
+    mapper = sage_plot.SnapshotRedshiftMapper(
+        param_file,
+        params.params,
+        params["OutputDir"],
+    )
+
+    data = {}
+    for snap in mapper.get_all_snapshots():
+        data[snap] = load_variable(param_file, snap, variable, output_dir)
+    
     return data
