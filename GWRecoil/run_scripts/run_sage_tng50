@@ -18,8 +18,21 @@
      make clean
      make
 
-# 2. Run SAGE:
-     ./sage --overwrite input/tng50.par
+     PARAM_FILE=input/tng50.par
+
+# 2. Run SAGE (10 realizations):
+     for run in {1..10}
+     do
+          echo "Starting run ${run}"
+
+          # replace output directory in parameter file
+          sed -i '' \
+          "s|OutputDir.*|OutputDir              /Users/pater32/Documents/GitHub/sage/GWRecoil/output/results/illustristng/tng50_4/run${run}|g" \
+          $PARAM_FILE
+
+     ./sage --overwrite $PARAM_FILE
+
+     done
 
 # 3. Generate plots (using virtual environment):
      # source sage_venv/bin/activate
